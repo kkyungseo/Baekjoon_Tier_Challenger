@@ -7,10 +7,13 @@ public class Main {
 
         // 입력받는 두 정수 A, B
         // -10^10000 ≤ A, B ≤ 10^10000
-        int A = sc.nextInt();    
-        int B = sc.nextInt();
+        long A = sc.nextLong();    
+        long B = sc.nextLong();
 
         System.out.println(A+B);
 
+        sc.close();
+
     }
 }
+
