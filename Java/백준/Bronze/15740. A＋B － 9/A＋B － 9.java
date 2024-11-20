@@ -1,3 +1,4 @@
+import java.math.BigInteger;
 import java.util.Scanner;
 
 public class Main {
@@ -7,10 +8,10 @@ public class Main {
 
         // 입력받는 두 정수 A, B
         // -10^10000 ≤ A, B ≤ 10^10000
-        long A = sc.nextLong();    
-        long B = sc.nextLong();
+        BigInteger A = sc.nextBigInteger();    
+        BigInteger B = sc.nextBigInteger();
 
-        System.out.println(A+B);
+        System.out.println(A.add(B));
 
         sc.close();
 
