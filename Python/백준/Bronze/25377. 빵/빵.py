@@ -1,26 +1,18 @@
 import sys
 
-def find_min_time_to_buy_bread(N, stores):
-    # 초기값을 -1로 설정하여, 빵을 살 수 없는 경우를 바로 처리
-    min_time = -1  
-    
-    # 각 가게에 대해 처리
-    for i in range(N):
-        # A : 걸리는 시간
-        # B : 빵이 도착할 시간
-        A, B = stores[i]  
-        
-        # 빵을 살 수 있다면
-        if A <= B: 
-             # 처음 또는 더 작은 시간이 나오면 갱신
-            if min_time == -1 or A < min_time: 
-                min_time = A
-    
-    return min_time
+# N : 가게의 개수
+N = int(sys.stdin.readline())
 
-# N : 가게의 수
-N = int(input())  
-# 각 가게의 (A, B) 정보
-stores = [tuple(map(int, input().split())) for _ in range(N)]  
+# d : KOI 빵을 살 수 있는 가장 이른 시각 (b 기준)
+d = 10**9  
 
-print(find_min_time_to_buy_bread(N, stores))
+for _ in range(N):
+    # A : 현재 위치에서 가게까지 가는 데 걸리는 시간
+    # B : 현재 시점에서 빵이 들어올 때까지의 시간
+    A, B = map(int, sys.stdin.readline().split())
+    
+    if A <= B and B < d:
+        d = B
+
+# 아무 조건에도 만족하지 않으면 d는 그대로 1e9일 것이므로 -1 출력
+print(-1 if d == 10**9 else d)
